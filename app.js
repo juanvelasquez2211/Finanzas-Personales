@@ -30,7 +30,7 @@ fecha:fecha.value,
 tipo:tipo.value,
 categoria:categoria.value,
 concepto:concepto.value,
-monto:Number(monto.value)
+monto:Number(monto.value.replace(/\./g,""))
 
 };
 
@@ -201,6 +201,22 @@ document.getElementById("tipo").addEventListener("change",actualizarCategorias);
 
 actualizarCategorias();
 
+const montoInput = document.getElementById("monto");
+
+montoInput.addEventListener("input", formatearMonto);
+
+function formatearMonto(e){
+
+let valor = e.target.value.replace(/\./g, "").replace(/[^0-9]/g, "");
+
+if(valor === "") return;
+
+valor = Number(valor).toLocaleString("es-CO");
+
+e.target.value = valor;
+
+}
+
 
 /* FILTRO POR MES */
 
@@ -210,4 +226,5 @@ document.getElementById("filtroMes")?.addEventListener("change",render);
 /* INICIAR APP */
 
 render();
+
 
