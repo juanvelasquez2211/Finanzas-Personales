@@ -272,3 +272,50 @@ z-index:2;
 bottom:0;
 
 }
+
+table{
+width:100%;
+table-layout:fixed;
+word-break:break-word;
+}
+
+td, th{
+font-size:13px;
+padding:8px;
+}
+
+td:last-child{
+width:70px;
+text-align:center;
+}
+
+td button{
+
+border:none;
+background:#eee;
+
+padding:5px 6px;
+margin:2px;
+
+border-radius:5px;
+
+font-size:12px;
+
+}
+
+#overlay{
+
+position:fixed;
+
+top:0;
+left:0;
+right:0;
+bottom:0;
+
+background:rgba(0,0,0,0.5);
+
+display:none;
+
+z-index:1;
+
+}
