@@ -77,16 +77,6 @@ color:white;
 border-bottom:1px solid rgba(255,255,255,0.2);
 }
 
-th{
-
-background:rgba(255,255,255,0.15);
-
-color:white;
-
-font-weight:600;
-
-}
-
 th,td{
 
 padding:10px;
@@ -334,28 +324,6 @@ cursor:pointer;
 
 }
 
-table{
-
-min-width:500px;
-
-}
-
-td button{
-
-border:none;
-background:#eee;
-
-padding:4px 5px;
-margin:1px;
-
-border-radius:5px;
-
-font-size:11px;
-
-cursor:pointer;
-
-}
-
 #overlay{
 cursor:pointer;
 }
@@ -449,6 +417,7 @@ font-weight:500;
 white-space:nowrap;
 
 }
+
 
 
 
