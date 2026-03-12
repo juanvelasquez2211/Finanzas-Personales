@@ -92,4 +92,42 @@ width:100%;
 padding:10px;
 margin:5px 0;
 
+
+}
+
+.nav{
+
+display:flex;
+justify-content:space-around;
+margin-bottom:15px;
+
+}
+
+.nav button{
+
+flex:1;
+padding:10px;
+border:none;
+background:#eee;
+font-size:14px;
+
+}
+
+.seccion{
+
+display:none;
+
+}
+
+.formBtns{
+
+display:flex;
+gap:10px;
+
+}
+
+.formBtns button{
+
+flex:1;
+
 }
