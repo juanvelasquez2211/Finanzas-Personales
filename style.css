@@ -18,8 +18,21 @@ gap:10px;
 }
 
 .card{
+
+flex:1;
+
+padding:15px;
+
+border-radius:10px;
+
+color:white;
+
+text-align:center;
+
 background:rgba(255,255,255,0.1);
-backdrop-filter:blur(8px);
+
+backdrop-filter: blur(10px);
+
 }
 
 .ingreso{
@@ -44,13 +57,25 @@ table{
 
 width:100%;
 
-background:white;
+background:rgba(255,255,255,0.1);
 
-margin-top:10px;
-
-border-radius:8px;
+border-radius:10px;
 
 overflow:hidden;
+
+color:white;
+
+}
+
+th{
+
+background:rgba(255,255,255,0.15);
+
+}
+
+td{
+
+border-bottom:1px solid rgba(255,255,255,0.1);
 
 }
 
@@ -88,12 +113,16 @@ border:none;
 display:none;
 
 position:fixed;
+
 bottom:-100%;
 
 left:0;
+
 right:0;
 
-background:white;
+background:rgba(0,0,0,0.85);
+
+backdrop-filter:blur(10px);
 
 padding:20px;
 
@@ -103,22 +132,24 @@ transition:0.3s;
 
 z-index:10;
 
+color:white;
+
+}
+
+#formContainer.active{
+
+bottom:0;
+
 }
 
 #formContainer input,
 #formContainer select{
 
-width:100%;
-padding:12px;
+background:rgba(255,255,255,0.1);
 
-margin-bottom:10px;
+border:1px solid rgba(255,255,255,0.2);
 
-border:1px solid #ccc;
-border-radius:6px;
-
-font-size:14px;
-
-box-sizing:border-box;
+color:white;
 
 }
 
@@ -133,10 +164,24 @@ margin-bottom:15px;
 .nav button{
 
 flex:1;
+
 padding:10px;
+
 border:none;
-background:#eee;
+
+background:rgba(255,255,255,0.15);
+
+color:white;
+
 font-size:14px;
+
+border-right:1px solid rgba(255,255,255,0.2);
+
+}
+
+.nav button:last-child{
+
+border-right:none;
 
 }
 
@@ -196,11 +241,11 @@ background:#27ae60;
 
 color:white;
 
-font-size:30px;
+font-size:32px;
 
 border:none;
 
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
+box-shadow:0 4px 20px rgba(0,0,0,0.5);
 
 }
 
@@ -274,15 +319,15 @@ text-align:center;
 
 td button{
 
+background:rgba(255,255,255,0.2);
+
+color:white;
+
 border:none;
-background:#eee;
 
-padding:5px 6px;
-margin:2px;
+padding:4px 6px;
 
-border-radius:5px;
-
-font-size:12px;
+border-radius:6px;
 
 }
 
@@ -334,3 +379,42 @@ background:#0b0f19;
 
 }
 
+.seccion{
+
+background: rgba(0,0,0,0.45);
+
+backdrop-filter: blur(8px);
+
+padding:15px;
+
+border-radius:10px;
+
+margin-top:10px;
+
+}
+
+h2{
+
+color:white;
+
+margin-bottom:10px;
+
+font-weight:600;
+
+}
+
+h3{
+
+color:white;
+
+margin-top:10px;
+
+margin-bottom:10px;
+
+}
+
+canvas{
+
+margin-top:15px;
+
+}
