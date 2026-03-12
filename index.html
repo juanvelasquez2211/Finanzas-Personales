@@ -101,6 +101,10 @@
 
 </div>
 
+<button class="btnAdd" onclick="abrirForm()">+</button>
+  
+<div id="formContainer">
+
 <form id="movForm">
 
 <h3>Nuevo Movimiento</h3>
@@ -108,11 +112,24 @@
 <input type="date" id="fecha" required>
 
 <select id="tipo">
-
 <option value="Ingreso">Ingreso</option>
 <option value="Egreso">Egreso</option>
-
 </select>
+
+<select id="categoria"></select>
+
+<input type="text" id="concepto" placeholder="Concepto">
+
+<input type="number" id="monto" placeholder="Monto">
+
+<div class="formBtns">
+<button type="submit">Guardar</button>
+<button type="button" onclick="cerrarForm()">Cancelar</button>
+</div>
+
+</form>
+
+</div>
 
 <select id="categoria">
 
@@ -138,15 +155,12 @@
 </div>
 
 </form>
-
-</div>
-  
-<button class="btnAdd" onclick="abrirForm()">+</button>
   
 <script src="app.js"></script>
 
 </body>
 
 </html>
+
 
 
