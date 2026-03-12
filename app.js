@@ -124,4 +124,37 @@ document.getElementById("formContainer").style.display="none";
 }
 
 
+const categoriasIngreso = ["Sueldo","Otros"];
+
+const categoriasEgreso = ["Gastos","Ahorro","Servicios","Deudas"];
+
+function actualizarCategorias(){
+
+let tipo = document.getElementById("tipo").value;
+
+let select = document.getElementById("categoria");
+
+select.innerHTML="";
+
+let lista = tipo === "Ingreso" ? categoriasIngreso : categoriasEgreso;
+
+lista.forEach(cat=>{
+
+let option = document.createElement("option");
+
+option.value = cat;
+
+option.textContent = cat;
+
+select.appendChild(option);
+
+});
+
+}
+
+document.getElementById("tipo").addEventListener("change",actualizarCategorias);
+
+actualizarCategorias();
+
 render();
+
