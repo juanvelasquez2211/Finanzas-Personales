@@ -44,9 +44,20 @@ background:#3498db;
 table{
 
 width:100%;
+
 background:white;
-margin-top:20px;
-border-collapse:collapse;
+
+margin-top:10px;
+
+border-radius:8px;
+
+overflow:hidden;
+
+}
+
+th{
+
+background:#f5f5f5;
 
 }
 
@@ -74,7 +85,6 @@ border:none;
 }
 
 #formContainer{
-
 display:none;
 position:fixed;
 bottom:0;
@@ -85,14 +95,13 @@ background:white;
 
 padding:20px;
 
-border-radius:15px 15px 0 0;
+border-radius:20px 20px 0 0;
 
-box-shadow:0 -5px 15px rgba(0,0,0,0.2);
+box-shadow:0 -5px 20px rgba(0,0,0,0.3);
 
 max-height:80vh;
 
 overflow:auto;
-
 }
 
 #formContainer input,
@@ -147,22 +156,13 @@ gap:10px;
 
 flex:1;
 
-}
+padding:12px;
 
-.formBtns{
-
-display:flex;
-gap:10px;
-
-}
-
-.formBtns button{
-
-flex:1;
-padding:10px;
 border:none;
-border-radius:6px;
-font-size:14px;
+
+border-radius:8px;
+
+font-weight:bold;
 
 }
 
@@ -176,5 +176,55 @@ color:white;
 .formBtns button:last-child{
 
 background:#ccc;
+
+}
+
+.btnAdd{
+
+position:fixed;
+
+bottom:20px;
+right:20px;
+
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+background:#27ae60;
+
+color:white;
+
+font-size:30px;
+
+border:none;
+
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+
+}
+
+#movForm{
+
+display:flex;
+flex-direction:column;
+
+}
+
+#movForm input,
+#movForm select{
+
+width:100%;
+
+padding:12px;
+
+margin-bottom:10px;
+
+border-radius:8px;
+
+border:1px solid #ccc;
+
+font-size:14px;
+
+box-sizing:border-box;
 
 }
