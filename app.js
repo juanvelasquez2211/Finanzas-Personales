@@ -4,6 +4,7 @@ const tabla = document.getElementById("tablaMovimientos");
 
 let chartCategoria;
 let chartPrincipal;
+let chartMes;
 
 function formatearDinero(valor){
 return "$ " + Number(valor).toLocaleString("es-CO");
@@ -144,6 +145,8 @@ grafico(ingresos,egresos);
 
 graficoCategorias(categorias);
 
+graficoMensual();
+
 let resumenHTML = "";
 
 for(let cat in categorias){
@@ -198,6 +201,52 @@ data:{
 labels:Object.keys(data),
 datasets:[{
 data:Object.values(data)
+}]
+}
+});
+
+}
+
+/* GRAFICO BALANCE MENSUAL */
+
+function graficoMensual(){
+
+let meses = new Array(12).fill(0);
+
+movimientos.forEach(m => {
+
+let mes = new Date(m.fecha).getMonth();
+
+if(m.tipo === "Ingreso"){
+meses[mes] += m.monto;
+}else{
+meses[mes] -= m.monto;
+}
+
+});
+
+let ctx = document.getElementById("graficoMes");
+
+if(!ctx) return;
+
+if(chartMes){
+chartMes.destroy();
+}
+
+chartMes = new Chart(ctx,{
+type:'line',
+data:{
+labels:[
+"Ene","Feb","Mar","Abr","May","Jun",
+"Jul","Ago","Sep","Oct","Nov","Dic"
+],
+datasets:[{
+label:"Balance mensual",
+data:meses,
+borderColor:"#3b82f6",
+backgroundColor:"rgba(59,130,246,0.2)",
+tension:0.3,
+fill:true
 }]
 }
 });
@@ -352,3 +401,4 @@ tsParticles.load("particles-bg", {
     }
 
 });
+
