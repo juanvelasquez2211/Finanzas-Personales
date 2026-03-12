@@ -1,7 +1,11 @@
 body{
 
 font-family:Arial;
-background:#f3f3f3;
+
+background:transparent;
+
+color:white;
+
 padding:15px;
 
 }
@@ -14,13 +18,8 @@ gap:10px;
 }
 
 .card{
-
-flex:1;
-padding:15px;
-border-radius:10px;
-color:white;
-text-align:center;
-
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(8px);
 }
 
 .ingreso{
@@ -334,3 +333,4 @@ z-index:-1;
 background:#0b0f19;
 
 }
+
