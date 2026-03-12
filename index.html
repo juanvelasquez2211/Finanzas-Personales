@@ -49,6 +49,7 @@
 </div>
 
 <canvas id="grafico"></canvas>
+<div id="resumenCategorias"></div>
 
 </div>
 
@@ -65,6 +66,7 @@
 <th>Categoria</th>
 <th>Concepto</th>
 <th>Monto</th>
+<th>Acciones</th>
 </tr>
 
 </thead>
@@ -98,10 +100,13 @@
 </select>
 
 <canvas id="graficoCategoria"></canvas>
+<canvas id="graficoMes"></canvas>
 
 </div>
 
 <button class="btnAdd" onclick="abrirForm()">+</button>
+
+<div id="overlay" onclick="cerrarForm()"></div>
 
 <div id="formContainer">
 
@@ -135,4 +140,5 @@
 
 </body>
 </html>
+
 
