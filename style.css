@@ -141,6 +141,7 @@ cursor:pointer;
 
 canvas{
 margin-top:15px;
+max-height:300px;
 }
 
 /* ---------- BOTON FLOTANTE ---------- */
@@ -238,3 +239,4 @@ display:none;
 z-index:5;
 cursor:pointer;
 }
+
