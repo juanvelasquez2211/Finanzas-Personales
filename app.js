@@ -3,6 +3,7 @@ let movimientos = JSON.parse(localStorage.getItem("movimientos")) || [];
 const tabla = document.getElementById("tablaMovimientos");
 
 let chartCategoria;
+let chartPrincipal;
 
 function formatearDinero(valor){
 return "$ " + Number(valor).toLocaleString("es-CO");
@@ -123,9 +124,13 @@ graficoCategorias(categorias);
 
 function grafico(i,e){
 
-let ctx=document.getElementById("grafico");
+let ctx = document.getElementById("grafico");
 
-new Chart(ctx,{
+if(chartPrincipal){
+chartPrincipal.destroy();
+}
+
+chartPrincipal = new Chart(ctx,{
 type:'doughnut',
 data:{
 labels:["Ingresos","Egresos"],
@@ -233,6 +238,7 @@ document.getElementById("filtroMes")?.addEventListener("change",render);
 /* INICIAR APP */
 
 render();
+
 
 
 
