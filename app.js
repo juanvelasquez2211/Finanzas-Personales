@@ -118,31 +118,6 @@ tabla.innerHTML+=`
 
 `;
 
-function eliminarMovimiento(index){
-
-movimientos.splice(index,1);
-
-localStorage.setItem("movimientos",JSON.stringify(movimientos));
-
-render();
-
-}
-
-function editarMovimiento(index){
-
-let m = movimientos[index];
-
-fecha.value = m.fecha;
-tipo.value = m.tipo;
-concepto.value = m.concepto;
-monto.value = m.monto;
-
-abrirForm();
-
-movimientos.splice(index,1);
-
-}
-
 if(m.tipo==="Ingreso"){
 ingresos+=m.monto;
 }else{
@@ -164,6 +139,18 @@ document.getElementById("saldo").innerText=formatearDinero(ingresos-egresos);
 grafico(ingresos,egresos);
 
 graficoCategorias(categorias);
+
+let resumenHTML = "";
+
+for(let cat in categorias){
+
+resumenHTML += `
+<p>${cat}: ${formatearDinero(categorias[cat])}</p>
+`;
+
+}
+
+document.getElementById("resumenCategorias").innerHTML = resumenHTML;
 
 }
 
@@ -285,21 +272,35 @@ document.getElementById("filtroMes")?.addEventListener("change",render);
 
 /* INICIAR APP */
 
-let resumenHTML="";
+render();
 
-for(let cat in categorias){
 
-resumenHTML+=`
+function eliminarMovimiento(index){
 
-<p>${cat}: ${formatearDinero(categorias[cat])}</p>
+movimientos.splice(index,1);
 
-`;
+localStorage.setItem("movimientos",JSON.stringify(movimientos));
+
+render();
 
 }
 
-document.getElementById("resumenCategorias").innerHTML=resumenHTML;
+function editarMovimiento(index){
 
-render();
+let m = movimientos[index];
+
+fecha.value = m.fecha;
+tipo.value = m.tipo;
+categoria.value = m.categoria;
+concepto.value = m.concepto;
+monto.value = Number(m.monto).toLocaleString("es-CO");
+
+abrirForm();
+
+movimientos.splice(index,1);
+
+}
+
 
 
 
