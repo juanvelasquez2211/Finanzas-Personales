@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mis Finanzas</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<h2>Finanzas Personales</h2>
+
+<div class="cards">
+
+<div class="card ingreso">
+<h3>Ingresos</h3>
+<p id="ingresos">$0</p>
+</div>
+
+<div class="card egreso">
+<h3>Egresos</h3>
+<p id="egresos">$0</p>
+</div>
+
+<div class="card saldo">
+<h3>Saldo</h3>
+<p id="saldo">$0</p>
+</div>
+
+</div>
+
+<canvas id="grafico"></canvas>
+
+<h3>Movimientos</h3>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Fecha</th>
+<th>Tipo</th>
+<th>Categoria</th>
+<th>Concepto</th>
+<th>Monto</th>
+</tr>
+
+</thead>
+
+<tbody id="tablaMovimientos"></tbody>
+
+</table>
+
+<button class="btnAdd" onclick="abrirForm()">+</button>
+
+<div id="formContainer">
+
+<form id="movForm">
+
+<h3>Nuevo Movimiento</h3>
+
+<input type="date" id="fecha" required>
+
+<select id="tipo">
+
+<option value="Ingreso">Ingreso</option>
+<option value="Egreso">Egreso</option>
+
+</select>
+
+<select id="categoria">
+
+<option>Sueldo</option>
+<option>Servicios</option>
+<option>Gastos</option>
+<option>Deudas</option>
+<option>Ahorro</option>
+<option>Otros</option>
+
+</select>
+
+<input type="text" id="concepto" placeholder="Concepto">
+
+<input type="number" id="monto" placeholder="Monto">
+
+<button type="submit">Guardar</button>
+
+</form>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
