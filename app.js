@@ -277,11 +277,15 @@ render();
 
 function eliminarMovimiento(index){
 
+if(confirm("¿Deseas eliminar este movimiento?")){
+
 movimientos.splice(index,1);
 
 localStorage.setItem("movimientos",JSON.stringify(movimientos));
 
 render();
+
+}
 
 }
 
@@ -300,6 +304,7 @@ abrirForm();
 movimientos.splice(index,1);
 
 }
+
 
 
 
