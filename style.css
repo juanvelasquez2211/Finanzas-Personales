@@ -251,28 +251,6 @@ z-index:5;
 
 /* formulario tipo app */
 
-#formContainer{
-
-display:none;
-
-position:fixed;
-bottom:-100%;
-
-left:0;
-right:0;
-
-background:white;
-
-padding:20px;
-
-border-radius:20px 20px 0 0;
-
-transition:0.3s;
-
-z-index:2;
-
-}
-
 #formContainer.active{
 
 bottom:0;
@@ -338,5 +316,5 @@ cursor:pointer;
 }
 
 #overlay{
-pointer-events:none;
+cursor:pointer;
 }
