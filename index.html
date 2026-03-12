@@ -17,6 +17,18 @@
 
 <h2>Finanzas Personales</h2>
 
+<div class="nav">
+
+<button onclick="mostrarSeccion('dashboard')">Inicio</button>
+
+<button onclick="mostrarSeccion('movimientos')">Movimientos</button>
+
+<button onclick="mostrarSeccion('estadisticas')">Estadísticas</button>
+
+</div>
+
+<div id="dashboard" class="seccion">
+
 <div class="cards">
 
 <div class="card ingreso">
@@ -38,12 +50,15 @@
 
 <canvas id="grafico"></canvas>
 
+</div>
+
+<div id="movimientos" class="seccion">
+
 <h3>Movimientos</h3>
 
 <table>
 
 <thead>
-
 <tr>
 <th>Fecha</th>
 <th>Tipo</th>
@@ -57,6 +72,16 @@
 <tbody id="tablaMovimientos"></tbody>
 
 </table>
+
+</div>
+
+<div id="estadisticas" class="seccion">
+
+<h3>Estadísticas</h3>
+
+<canvas id="graficoCategoria"></canvas>
+
+</div>
 
 <button class="btnAdd" onclick="abrirForm()">+</button>
 
@@ -90,7 +115,13 @@
 
 <input type="number" id="monto" placeholder="Monto">
 
+<div class="formBtns">
+
 <button type="submit">Guardar</button>
+
+<button type="button" onclick="cerrarForm()">Cancelar</button>
+
+</div>
 
 </form>
 
@@ -99,4 +130,5 @@
 <script src="app.js"></script>
 
 </body>
+
 </html>
