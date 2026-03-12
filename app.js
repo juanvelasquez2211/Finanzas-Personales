@@ -4,6 +4,10 @@ const tabla = document.getElementById("tablaMovimientos");
 
 let chartCategoria;
 
+function formatearDinero(valor){
+return "$ " + Number(valor).toLocaleString("es-CO");
+}
+
 /* ABRIR Y CERRAR FORM */
 
 function abrirForm(){
@@ -36,7 +40,7 @@ monto:Number(monto.value.replace(/\./g,""))
 
 movimientos.push(mov);
 
-localStorage.setItem("movimientos",JSON.stringify(movimientos));
+localStorage.setItem("movimientos",JSON.stringify(imientos));
 
 render();
 
@@ -81,7 +85,7 @@ tabla.innerHTML+=`
 <td>${m.tipo}</td>
 <td>${m.categoria}</td>
 <td>${m.concepto}</td>
-<td>$${m.monto}</td>
+<td>${formatearDinero(m.monto)}</td>
 
 </tr>
 
@@ -101,9 +105,9 @@ categorias[m.categoria] += m.monto;
 
 });
 
-document.getElementById("ingresos").innerText="$"+ingresos;
-document.getElementById("egresos").innerText="$"+egresos;
-document.getElementById("saldo").innerText="$"+(ingresos-egresos);
+document.getElementById("ingresos").innerText=formatearDinero(ingresos);
+document.getElementById("egresos").innerText=formatearDinero(egresos);
+document.getElementById("saldo").innerText=formatearDinero(ingresos-egresos);
 
 grafico(ingresos,egresos);
 
@@ -203,9 +207,9 @@ actualizarCategorias();
 
 const montoInput = document.getElementById("monto");
 
-montoInput.addEventListener("input", formatearMonto);
+montoInput.addEventListener("input", tearMonto);
 
-function formatearMonto(e){
+function tearMonto(e){
 
 let valor = e.target.value.replace(/\./g, "").replace(/[^0-9]/g, "");
 
@@ -226,5 +230,6 @@ document.getElementById("filtroMes")?.addEventListener("change",render);
 /* INICIAR APP */
 
 render();
+
 
 
