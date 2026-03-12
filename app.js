@@ -12,17 +12,32 @@ return "$ " + Number(valor).toLocaleString("es-CO");
 /* ABRIR Y CERRAR FORM */
 
 function abrirForm(){
+
+document.getElementById("overlay").style.display="block";
+
 const form = document.getElementById("formContainer");
-if(form){
+
 form.style.display="block";
-}
+
+setTimeout(()=>{
+form.classList.add("active");
+},10);
+
 }
 
 function cerrarForm(){
 
 document.getElementById("movForm").reset();
 
-document.getElementById("formContainer").style.display="none";
+document.getElementById("overlay").style.display="none";
+
+const form = document.getElementById("formContainer");
+
+form.classList.remove("active");
+
+setTimeout(()=>{
+form.style.display="none";
+},300);
 
 }
 
@@ -73,7 +88,7 @@ Ahorro:0
 
 let filtroMes = document.getElementById("filtroMes")?.value || "todos";
 
-movimientos.forEach(m=>{
+movimientos.forEach((m,index)=>{
 
 let mesMovimiento = new Date(m.fecha).getMonth()+1;
 
@@ -91,9 +106,42 @@ tabla.innerHTML+=`
 <td>${m.concepto}</td>
 <td>${formatearDinero(m.monto)}</td>
 
+<td>
+
+<button onclick="editarMovimiento(${index})">✏</button>
+
+<button onclick="eliminarMovimiento(${index})">🗑</button>
+
+</td>
+
 </tr>
 
 `;
+
+function eliminarMovimiento(index){
+
+movimientos.splice(index,1);
+
+localStorage.setItem("movimientos",JSON.stringify(movimientos));
+
+render();
+
+}
+
+function editarMovimiento(index){
+
+let m = movimientos[index];
+
+fecha.value = m.fecha;
+tipo.value = m.tipo;
+concepto.value = m.concepto;
+monto.value = m.monto;
+
+abrirForm();
+
+movimientos.splice(index,1);
+
+}
 
 if(m.tipo==="Ingreso"){
 ingresos+=m.monto;
@@ -237,7 +285,22 @@ document.getElementById("filtroMes")?.addEventListener("change",render);
 
 /* INICIAR APP */
 
+let resumenHTML="";
+
+for(let cat in categorias){
+
+resumenHTML+=`
+
+<p>${cat}: ${formatearDinero(categorias[cat])}</p>
+
+`;
+
+}
+
+document.getElementById("resumenCategorias").innerHTML=resumenHTML;
+
 render();
+
 
 
 
