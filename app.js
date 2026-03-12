@@ -18,9 +18,12 @@ form.style.display="block";
 }
 
 function cerrarForm(){
-document.getElementById("formContainer").style.display="none";
-}
 
+document.getElementById("movForm").reset();
+
+document.getElementById("formContainer").style.display="none";
+
+}
 
 /* GUARDAR MOVIMIENTO */
 
@@ -40,13 +43,13 @@ monto:Number(monto.value.replace(/\./g,""))
 
 movimientos.push(mov);
 
-localStorage.setItem("movimientos",JSON.stringify(moviimientos));
+localStorage.setItem("movimientos",JSON.stringify(movimientos));
 
 render();
 
-cerrarForm();
-
 this.reset();
+
+cerrarForm();
 
 });
 
@@ -207,9 +210,9 @@ actualizarCategorias();
 
 const montoInput = document.getElementById("monto");
 
-montoInput.addEventListener("input", tearMonto);
+montoInput.addEventListener("input", formatearMonto);
 
-function tearMonto(e){
+function formatearMonto(e){
 
 let valor = e.target.value.replace(/\./g, "").replace(/[^0-9]/g, "");
 
@@ -230,6 +233,7 @@ document.getElementById("filtroMes")?.addEventListener("change",render);
 /* INICIAR APP */
 
 render();
+
 
 
 
