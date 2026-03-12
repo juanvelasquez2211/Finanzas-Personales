@@ -7,7 +7,10 @@ let chartCategoria;
 /* ABRIR Y CERRAR FORM */
 
 function abrirForm(){
-document.getElementById("formContainer").style.display="block";
+const form = document.getElementById("formContainer");
+if(form){
+form.style.display="block";
+}
 }
 
 function cerrarForm(){
@@ -207,3 +210,4 @@ document.getElementById("filtroMes")?.addEventListener("change",render);
 /* INICIAR APP */
 
 render();
+
