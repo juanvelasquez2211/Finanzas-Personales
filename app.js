@@ -147,6 +147,64 @@ graficoCategorias(categorias);
 
 graficoMensual();
 
+estadisticasDashboard();
+
+function estadisticasDashboard(){
+
+let mayorIngreso = 0;
+let mayorGasto = 0;
+let totalGastos = 0;
+let cantidadGastos = 0;
+
+movimientos.forEach(m => {
+
+if(m.tipo === "Ingreso"){
+if(m.monto > mayorIngreso){
+mayorIngreso = m.monto;
+}
+}
+
+if(m.tipo === "Egreso"){
+if(m.monto > mayorGasto){
+mayorGasto = m.monto;
+}
+
+totalGastos += m.monto;
+cantidadGastos++;
+}
+
+});
+
+let promedio = cantidadGastos ? totalGastos / cantidadGastos : 0;
+
+let html = `
+
+<div class="stat-card">
+<div class="stat-title">Mayor ingreso</div>
+<div class="stat-value">${formatearDinero(mayorIngreso)}</div>
+</div>
+
+<div class="stat-card">
+<div class="stat-title">Mayor gasto</div>
+<div class="stat-value">${formatearDinero(mayorGasto)}</div>
+</div>
+
+<div class="stat-card">
+<div class="stat-title">Promedio gasto</div>
+<div class="stat-value">${formatearDinero(promedio)}</div>
+</div>
+
+<div class="stat-card">
+<div class="stat-title">Movimientos</div>
+<div class="stat-value">${movimientos.length}</div>
+</div>
+
+`;
+
+document.getElementById("estadisticasResumen").innerHTML = html;
+
+}
+
 let resumenHTML = "";
 
 for(let cat in categorias){
@@ -401,4 +459,5 @@ tsParticles.load("particles-bg", {
     }
 
 });
+
 
