@@ -13,9 +13,11 @@ return "$ " + Number(valor).toLocaleString("es-CO");
 
 function abrirForm(){
 
-document.getElementById("overlay").style.display="block";
-
+const overlay = document.getElementById("overlay");
 const form = document.getElementById("formContainer");
+
+overlay.style.display="block";
+overlay.style.pointerEvents="auto";
 
 form.style.display="block";
 
@@ -29,9 +31,11 @@ function cerrarForm(){
 
 document.getElementById("movForm").reset();
 
-document.getElementById("overlay").style.display="none";
-
+const overlay = document.getElementById("overlay");
 const form = document.getElementById("formContainer");
+
+overlay.style.display="none";
+overlay.style.pointerEvents="none";
 
 form.classList.remove("active");
 
@@ -211,6 +215,10 @@ sec.style.display="none";
 
 document.getElementById(id).style.display="block";
 
+if(id === "estadisticas"){
+render();
+}
+
 }
 
 mostrarSeccion("dashboard");
@@ -304,6 +312,7 @@ abrirForm();
 movimientos.splice(index,1);
 
 }
+
 
 
 
