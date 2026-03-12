@@ -40,7 +40,7 @@ monto:Number(monto.value.replace(/\./g,""))
 
 movimientos.push(mov);
 
-localStorage.setItem("movimientos",JSON.stringify(imientos));
+localStorage.setItem("movimientos",JSON.stringify(moviimientos));
 
 render();
 
@@ -230,6 +230,7 @@ document.getElementById("filtroMes")?.addEventListener("change",render);
 /* INICIAR APP */
 
 render();
+
 
 
 
