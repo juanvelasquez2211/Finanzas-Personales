@@ -65,6 +65,20 @@ egresos+=m.monto;
 
 }
 
+let mesMovimiento = new Date(m.fecha).getMonth()+1;
+
+if(filtroMes !== "todos" && mesMovimiento != filtroMes){
+return;
+}
+
+if(m.tipo === "Egreso"){
+
+if(categorias[m.categoria] !== undefined){
+categorias[m.categoria] += m.monto;
+}
+
+}
+  
 });
 
 document.getElementById("ingresos").innerText="$"+ingresos;
@@ -156,5 +170,44 @@ document.getElementById("tipo").addEventListener("change",actualizarCategorias);
 
 actualizarCategorias();
 
+document.getElementById("filtroMes").addEventListener("change",render);
+
+let categorias = {
+Gastos:0,
+Servicios:0,
+Deudas:0,
+Ahorro:0
+};
+
+let filtroMes = document.getElementById("filtroMes")?.value || "todos";
+
+let chartCategoria;
+
+function graficoCategorias(data){
+
+let ctx = document.getElementById("graficoCategoria");
+
+if(chartCategoria){
+chartCategoria.destroy();
+}
+
+chartCategoria = new Chart(ctx,{
+
+type:'doughnut',
+
+data:{
+labels:Object.keys(data),
+datasets:[{
+data:Object.values(data)
+}]
+}
+
+});
+
+}
+
+graficoCategorias(categorias);
+
 render();
+
 
