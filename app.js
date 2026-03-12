@@ -313,12 +313,42 @@ movimientos.splice(index,1);
 
 }
 
+tsParticles.load("particles-bg", {
+    
+    background: {
+        color: "#0b0f19"
+    },
 
+    particles: {
+        number: {
+            value: 60
+        },
 
+        color: {
+            value: "#3b82f6"
+        },
 
+        links: {
+            enable: true,
+            distance: 150,
+            color: "#3b82f6",
+            opacity: 0.3,
+            width: 1
+        },
 
+        move: {
+            enable: true,
+            speed: 1
+        },
 
+        size: {
+            value: 2
+        },
 
+        opacity: {
+            value: 0.5
+        }
 
+    }
 
-
+});
