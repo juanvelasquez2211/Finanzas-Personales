@@ -99,4 +99,29 @@ data:[i,e]
 
 }
 
+function mostrarSeccion(id){
+
+document.querySelectorAll(".seccion").forEach(sec=>{
+sec.style.display="none";
+});
+
+document.getElementById(id).style.display="block";
+
+}
+
+mostrarSeccion("dashboard");
+
+function abrirForm(){
+
+document.getElementById("formContainer").style.display="block";
+
+}
+
+function cerrarForm(){
+
+document.getElementById("formContainer").style.display="none";
+
+}
+
+
 render();
