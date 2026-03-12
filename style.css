@@ -57,9 +57,7 @@ table{
 
 width:100%;
 
-border-collapse:collapse;
-
-background:rgba(255,255,255,0.1);
+background:rgba(0,0,0,0.35);
 
 border-radius:10px;
 
@@ -85,7 +83,7 @@ td{
 
 padding:10px;
 
-border-bottom:1px solid rgba(255,255,255,0.2);
+border-bottom:1px solid rgba(255,255,255,0.15);
 
 white-space:normal;
 
@@ -93,7 +91,11 @@ white-space:normal;
 
 th{
 
-background:#f5f5f5;
+background:rgba(255,255,255,0.15);
+
+color:white;
+
+font-weight:600;
 
 }
 
@@ -459,4 +461,5 @@ font-weight:500;
 white-space:nowrap;
 
 }
+
 
