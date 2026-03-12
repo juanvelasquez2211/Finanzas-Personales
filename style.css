@@ -325,9 +325,13 @@ color:white;
 
 border:none;
 
-padding:4px 6px;
+padding:6px 8px;
 
 border-radius:6px;
+
+margin:2px;
+
+cursor:pointer;
 
 }
 
@@ -416,5 +420,37 @@ margin-bottom:10px;
 canvas{
 
 margin-top:15px;
+
+}
+
+.tabla-container{
+
+overflow-x:auto;
+
+margin-top:10px;
+
+border-radius:10px;
+
+}
+
+.tabla-movimientos{
+
+min-width:650px;
+
+}
+
+.tabla-movimientos th{
+
+background:rgba(255,255,255,0.15);
+
+color:white;
+
+font-weight:500;
+
+}
+
+.tabla-movimientos td{
+
+white-space:nowrap;
 
 }
